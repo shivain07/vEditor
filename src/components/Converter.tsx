@@ -39,9 +39,9 @@ function Converter() {
   const [outputFileToDownload, setOutputFileToDownload] = useState("");
   const [progress, setProgress] = useState(0);
   const [showErrorModal, setShowErrorModal] = useState(false);
-  const [processingTimeoutId, setProcessingTimeoutId] = useState<null | number>(
-    null
-  );
+  const [processingTimeoutId, setProcessingTimeoutId] = useState<ReturnType<
+    typeof setTimeout
+  > | null>(null);
 
   useEffect(() => {
     const loadFFmpeg = async () => {
@@ -211,16 +211,21 @@ function Converter() {
         )}
       </div>
 
-      <div className="mb-4 mt-4 p-4 text-sm bg-blue-100 text-blue-800 rounded shadow-sm flex gap-1">
-        <IoInformationCircle size={20} />
-        <span>
-          Supported format include:{" "}
+      <div className="mb-4 mt-4 p-4 text-sm bg-blue-100 text-blue-800 rounded shadow-sm">
+        <div className="flex items-start gap-2">
+          <IoInformationCircle size={20} />
+          <span>Supported formats include:</span>
+        </div>
+        <div className="flex flex-wrap gap-2 mt-2">
           {supportedFormatsToConvert.map((format) => (
-            <strong className="p-1" key={format}>
+            <strong
+              key={format}
+              className="p-1"
+            >
               {format}
             </strong>
           ))}
-        </span>
+        </div>
       </div>
 
       <Modal

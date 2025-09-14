@@ -20,7 +20,11 @@ import { IoMdDownload } from "react-icons/io";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import VeditGif from "../assets/veditgif.gif";
 import { BsCameraVideo } from "react-icons/bs";
-import { availableFormats, filterOptions, fontOptions } from "../constants/fieldsConstant";
+import {
+  availableFormats,
+  filterOptions,
+  fontOptions,
+} from "../constants/fieldsConstant";
 type FormValues = {
   videoFormat: string;
   filter?: string;
@@ -73,9 +77,7 @@ function MainEditor() {
   const [videoDuration, setVideoDuration] = useState<number>(20);
   const [progress, setProgress] = useState(0);
   const [showErrorModal, setShowErrorModal] = useState(false);
-  const [processingTimeoutId, setProcessingTimeoutId] = useState<null | number>(
-    null
-  );
+  const [processingTimeoutId, setProcessingTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const loadFFmpeg = async () => {
@@ -90,10 +92,10 @@ function MainEditor() {
         //   console.log("FFmpeg log:", message);
         // });
 
-        ffmpeg.on("progress",({progress})=>{
-          let percentToComplete= progress*100;
+        ffmpeg.on("progress", ({ progress }) => {
+          let percentToComplete = progress * 100;
           setProgress(percentToComplete);
-        })
+        });
 
         await ffmpeg.load({
           coreURL: await toBlobURL(
