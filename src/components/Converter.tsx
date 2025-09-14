@@ -124,7 +124,7 @@ function Converter() {
     const type = `video/${filename.split(".")[1]}`; //"video/mp4"
 
     // 3️⃣ Create a Blob from binary data
-    const blob = new Blob([data.buffer], { type: type });
+    const blob = new Blob([(data as any).buffer], { type: type });
 
     // 4️⃣ Create a URL for preview / download
     const url = URL.createObjectURL(blob);
@@ -286,7 +286,7 @@ function Converter() {
           </div>
         </div>
       </div>
-      
+
       <div>
         {processingVideo && (
           <>

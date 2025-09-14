@@ -1,5 +1,4 @@
 import {
-  Button,
   Timeline,
   TimelineBody,
   TimelineContent,
@@ -8,7 +7,6 @@ import {
   TimelineTime,
   TimelineTitle,
 } from "flowbite-react";
-import { HiArrowNarrowRight } from "react-icons/hi";
 
 export default function TimelineComponent() {
   return (
