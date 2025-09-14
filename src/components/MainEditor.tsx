@@ -93,8 +93,8 @@ function MainEditor() {
         // });
 
         ffmpeg.on("progress", ({ progress }) => {
-          let percentToComplete = progress * 100;
-          setProgress(percentToComplete);
+          const percent = Math.floor(progress * 100); // Convert to percentage
+          setProgress(percent);
         });
 
         await ffmpeg.load({
