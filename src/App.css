@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+
+body{
+  margin: 0px;
+  padding: 0px;
+}
+

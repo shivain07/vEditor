@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'HennyPenny';
+  src: url('/fonts/HennyPenny-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Kablamo';
+  src: url('/fonts/Kablammo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.henny-text {
+  font-family: 'HennyPenny', cursive ,sans-serif;
+}
+
+.kablamo-text{
+    font-family: 'Kablamo',cursive,'Courier New', Courier, monospace;
+}
